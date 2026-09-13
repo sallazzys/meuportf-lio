@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/icone-aba.png">
+    <title>Estilização com HTML e CSS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- 1. BARRA DE NAVEGAÇÃO (NAVBAR) -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid px-4">
+        
+        <!-- 1. Esquerda: Meu Portfólio -->
+        <a class="navbar-brand fw-bold me-auto ms-2" href="#">Meu Portfólio</a>
+
+        <!-- 2. Centro: Sobrenome com a fonte customizada -->
+        <span id="logo-sobrenome" class="navbar-text fs-3 text-white fw-bold mx-auto position-absolute start-50 translate-middle-x">
+            Salazar
+        </span>
+
+        <!-- Botão Menu Hambúrguer (para telas pequenas de celular) -->
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- 3. Direita: Links de navegação -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Mim</a></li>
+                <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+    <div class="container text-center my-5">
+        
+        <!-- 2. CABEÇALHO / APRESENTAÇÃO -->
+        <header id="sobre" class="mb-5">
+            <h1 class="display-4 text-white">Olá, sou Estudante de ADS!</h1>
+            <p class="fs-5 text-light">Desenvolvedor Web em formação | Apaixonado por Tecnologia</p>
+        </header>
+
+        <!-- 3. SEÇÃO DE HABILIDADES (ÓTIMO PARA TREINAR FLEXBOX) -->
+        <section id="habilidades" class="mb-5">
+            <h2 class="text-white mb-4">Minhas Habilidades</h2>
+            <!-- Usando Flexbox do Bootstrap -->
+            <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+        <button class="btn btn-dark p-3 fs-6 btn-habilidade" data-info="HTML5 é a linguagem de marcação usada para estruturar todo o conteúdo de uma página web, como textos, imagens e vídeos.">
+            HTML5
+        </button>
+
+        <button class="btn btn-dark p-3 fs-6 btn-habilidade" data-info="CSS3 é responsável por toda a estilização visual da página. O Flexbox é um modelo de layout eficiente para alinhar e distribuir elementos na tela.">
+            CSS3 & Flexbox
+        </button>
+
+        <button class="btn btn-dark p-3 fs-6 btn-habilidade" data-info="Bootstrap 5 é um framework front-end com componentes e classes CSS prontas para criar layouts responsivos de forma rápida.">
+            Bootstrap 5
+        </button>
+
+        <button class="btn btn-dark p-3 fs-6 btn-habilidade" data-info="JavaScript é a linguagem de programação que adiciona interatividade e comportamento dinâmico às páginas web.">
+            JavaScript
+        </button>
+    </div>
+    <div id="caixaDescricao" class="p-3 bg-dark text-white rounded shadow mx-auto text-center" style="max-width: 600px; min-height: 80px; display: flex; align-items: center; justify-content: center;">
+        <p id="textoDescricao" class="m-0 text-muted italic">Selecione uma habilidade acima para ver mais detalhes...</p>
+    </div>
+        </section>
+
+        <!-- 4. SEÇÃO DE PROJETOS E MÍDIAS -->
+        <section id="projetos" class="mb-5">
+            <h2 class="text-white mb-4">Projetos & Mídias</h2>
+            <div class="row justify-content-center">
+        <!-- Card Único para o seu Vídeo -->
+        <div class="col-12 col-lg-8">
+            <div class="card bg-dark text-white p-3 border-0 shadow">
+                <h3 class="h5 text-center">Demonstração da página</h3>
+                
+                <!-- Tag de vídeo atualizada com o tipo MP4 comum -->
+                <video controls class="w-100 rounded my-2 shadow-sm">
+                    <source src="video/estlizacao.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+                
+                <p class="small text-muted text-center m-0">Projeto em vídeo demonstrativo de ADS.</p>
+            </div>
+        </section>
+<!-- SEÇÃO BASQUETE -->
+     <section class="my-5 text-center">
+         <h2 class="text-white mb-3">Acerte o arremesso! 🏀</h2>
+         
+        <div class="quadra-basquete">
+             <div id="bola"  class="bola">🏀</div>
+            <div class="cesta">🗑️</div>
+        </div>
+        <!-- Botão para disparar a animação -->
+    <button id="btnArremessar" class="btn btn-danger fw-bold mt-3">
+        Clique aqui para fazer a cesta!
+    </button>
+    </section>
+    <!-- ELEMENTO DE ÁUDIO (Música) -->
+<audio id="minhaMusica">
+    <source src="audio/ytdown.m4a" type="audio/mpeg">
+    Seu navegador não suporta a tag de áudio.
+</audio>
+
+<!-- BOTÃO FLUTUANTE (Inicia escondido com a classe 'd-none') -->
+<button id="btnMusicaFlutuante" class="btn btn-danger rounded-circle shadow-lg d-none position-fixed m-4 p-3" style="z-index: 1000; font-size: 1.5rem;">
+    🎵 Tocar Música!
+</button>
+        <!-- 5. SEÇÃO INTERATIVA COM JAVASCRIPT (SUDOESTE DE TREINO) -->
+       <section id="interativo" class="p-4 bg-dark text-white rounded mb-5 shadow text-center">
+    <h2 class="h4 mb-3">Área do JavaScript</h2>
+    <p>Clique no botão abaixo para revelar o meu contato profissional:</p>
+    
+    <button id="btnMensagem" class="btn btn-danger fw-bold">Ver Contato</button>
+    
+    <p id="respostaJS" class="mt-3 fs-5 fw-bold"></p>
+</section>
+    </div>
+    <!-- RODAPÉ DA PÁGINA -->
+<footer class="bg-dark text-white text-center py-4 mt-5 border-top border-secondary">
+    <div class="container">
+        <p class="mb-1 fw-bold">Gustavo Salazar &copy; 2026</p>
+        <p class="small text-muted mb-0">Desenvolvido com HTML, CSS, Bootstrap & JavaScript</p>
+    </div>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 6. SEU CÓDIGO JAVASCRIPT -->
+<script src="js/script.js"></script>
+</body>
+</html>
