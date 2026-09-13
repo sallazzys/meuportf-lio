@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+/* Configuração de Fontes e Cores Gerais */
+body {
+    margin: 0;             
+    padding: 20px;          
+    box-sizing: border-box;  
+    font-family: Arial, sans-serif; 
+    background-color: #e40f2c;
+}
+#logo-sobrenome {
+    font-family: 'Audiowide', sans-serif;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+h1, h2, a {
+    font-family: 'Audiowide', sans-serif;
+}
+
+h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #271c1c;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+/* Estilização do Vídeo */
+video {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 0 auto; /* Centraliza o vídeo horizontalmente */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+}
+
+/* Estilização do Player de Áudio */
+.playeraudio {
+    width: 100%;          
+    max-width: 600px;     
+    padding: 12px;
+    margin: 20px auto;    
+    background-color: #b30018; 
+    border-radius: 12px;  
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+    box-sizing: border-box; 
+}
+
+.playeraudio audio {
+    display: block;
+    width: 100%;
+}
+
+/* Link */
+a {
+    font-size: 1.1rem;
+    font-style: oblique;
+    color: #330600;
+}
+/* Área do campo/quadra */
+.quadra-basquete {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    margin: 0 auto;
+    background-color: #2e0101;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #333;
+}
+
+/* Cesta no canto direito */
+.cesta {
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    font-size: 3rem;
+}
+
+/* Bola e o efeito de quicar e cair */
+.bola {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    font-size: 2.5rem;
+}
+/* Nova classe que ativa a animação quando o JS adicionar */
+.bola.quicar {
+    animation: quicarECesta 4s ease-in-out;
+}
+
+/* Movimento da bola quicando até a cesta */
+@keyframes quicarECesta {
+    0%   { left: 20px;  bottom: 20px; transform: scale(1); }
+    15%  { left: 100px; bottom: 120px; } /* 1º Quique no ar */
+    30%  { left: 180px; bottom: 20px; }  /* Toca o chão */
+    45%  { left: 260px; bottom: 140px; } /* 2º Quique (mais alto) */
+    60%  { left: 340px; bottom: 20px; }  /* Toca o chão */
+    75%  { left: 420px; bottom: 150px; } /* Sobe em direção à cesta */
+    88%  { left: 505px; bottom: 65px; transform: scale(1); } /* Na boca da cesta */
+    93%  { left: 505px; bottom: 15px; transform: scale(0.8); } /* Caiu dentro! */
+    100% { left: 505px; bottom: 15px; transform: scale(0.8); opacity: 0; } /* Sumiu na cesta */
+}
+/* Botão flutuante que anda pela tela toda */
+#btnMusicaFlutuante {
+    position: fixed;
+    z-index: 1000;
+    animation: andarPelaTela 6s infinite linear;
+}
+
+@keyframes andarPelaTela {
+    0% {
+        bottom: 20px;
+        right: 20px;
+    }
+    25% {
+        bottom: 70vh; /* Sobe até o topo direito */
+        right: 40px;
+    }
+    50% {
+        bottom: 80vh; 
+        right: 75vw; /* Vai até o topo esquerdo */
+    }
+    75% {
+        bottom: 30px; 
+        right: 80vw; /* Desce até a base esquerda */
+    }
+    100% {
+        bottom: 20px; 
+        right: 20px; /* Volta para a posição inicial */
+    }
+}
